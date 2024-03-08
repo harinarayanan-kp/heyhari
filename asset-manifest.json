@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.fbe2c575.css",
+    "main.js": "/react-gh-pages/static/js/main.286790e4.js",
+    "static/js/453.e9afb2cb.chunk.js": "/react-gh-pages/static/js/453.e9afb2cb.chunk.js",
+    "static/media/pfp_main.png": "/react-gh-pages/static/media/pfp_main.0f30fc2a51d3b7bf6971.png",
+    "static/media/img4.png": "/react-gh-pages/static/media/img4.8258ff794430470db342.png",
+    "static/media/img2.png": "/react-gh-pages/static/media/img2.d7f96e9e907e3f5a3be6.png",
+    "static/media/img1.png": "/react-gh-pages/static/media/img1.05e9c0d65b7ae4793f69.png",
+    "static/media/pfp_fg.png": "/react-gh-pages/static/media/pfp_fg.f964c44ff6e97ea7be8f.png",
+    "static/media/img3.png": "/react-gh-pages/static/media/img3.05cb38cd662a89dfca96.png",
+    "static/media/img5.png": "/react-gh-pages/static/media/img5.e51e114045027369c699.png",
+    "static/media/pfp_bg.png": "/react-gh-pages/static/media/pfp_bg.7bf6303f41e46f40a13e.png",
+    "static/media/goto.png": "/react-gh-pages/static/media/goto.98f86e9d393037a5fd4b.png",
+    "index.html": "/react-gh-pages/index.html",
+    "main.fbe2c575.css.map": "/react-gh-pages/static/css/main.fbe2c575.css.map",
+    "main.286790e4.js.map": "/react-gh-pages/static/js/main.286790e4.js.map",
+    "453.e9afb2cb.chunk.js.map": "/react-gh-pages/static/js/453.e9afb2cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fbe2c575.css",
+    "static/js/main.286790e4.js"
+  ]
+}
