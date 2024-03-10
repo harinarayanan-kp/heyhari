@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/heyhari/static/css/main.fbe2c575.css",
+    "main.css": "/heyhari/static/css/main.da1559de.css",
     "main.js": "/heyhari/static/js/main.b1d1d52e.js",
     "static/js/453.e9afb2cb.chunk.js": "/heyhari/static/js/453.e9afb2cb.chunk.js",
     "static/media/pfp_main.png": "/heyhari/static/media/pfp_main.0f30fc2a51d3b7bf6971.png",
@@ -13,12 +13,12 @@
     "static/media/pfp_bg.png": "/heyhari/static/media/pfp_bg.7bf6303f41e46f40a13e.png",
     "static/media/goto.png": "/heyhari/static/media/goto.98f86e9d393037a5fd4b.png",
     "index.html": "/heyhari/index.html",
-    "main.fbe2c575.css.map": "/heyhari/static/css/main.fbe2c575.css.map",
+    "main.da1559de.css.map": "/heyhari/static/css/main.da1559de.css.map",
     "main.b1d1d52e.js.map": "/heyhari/static/js/main.b1d1d52e.js.map",
     "453.e9afb2cb.chunk.js.map": "/heyhari/static/js/453.e9afb2cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fbe2c575.css",
+    "static/css/main.da1559de.css",
     "static/js/main.b1d1d52e.js"
   ]
 }
