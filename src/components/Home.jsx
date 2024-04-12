@@ -16,46 +16,51 @@ import img3 from "./portfolioimages/img3.png";
 import img4 from "./portfolioimages/img4.png";
 import img5 from "./portfolioimages/img5.png";
 
+import video1 from "../assets/renderfolio.mp4";
+import video2 from "../assets/renderfolio2.mp4";
+
 const Home = () => {
   return (
     <div className="home">
-      <div className="column1">
-        <div className="homecenter">
-          <div className="introtitle">Hey, Hari Here</div>
-          <div className="squareimg">
-            <img className="pfpfg" src={fg} alt="" />
-            <img className="pfpimg" src={pfp} alt="" />
-            <img className="pfpbg" src={bg} alt="" />
-          </div>
-        </div>
-        <div className="gridbox">
-          <Tile
-            img={img1}
-            tags={["#web", "#firebase"]}
-            link={"https://trek-stepintostyle.web.app/"}
-          />
-          <Tile
-            img={img2}
-            tags={["#web", "#portfolio",  "#ui"]}
-            link={"https://harinarayanan-kp.github.io/portfolio/"}
-          />
-          <Tile
-            img={img3}
-            tags={["#web", "#portfolio"]}
-            link={"https://trek-stepintostyle.web.app/"}
-          />
-          <Tile
-            img={img4}
-            tags={["#blender", "#3dmodelling"]}
-          />
-          <Tile
-            img={img5}
-            tags={["#web", "#threejs"]}
-            link={"https://harinarayanan-kp.github.io/valentine/"}
-          />
+      <video className="vidfull" src={video2} autoPlay loop muted />
+      <div className="homecenter">
+        <div className="introtitle">Hey, Hari Here</div>
+        <div className="squareimg">
+          <img className="pfpfg" src={fg} alt="" />
+          <img className="pfpimg" src={pfp} alt="" />
+          <img className="pfpbg" src={bg} alt="" />
         </div>
       </div>
+      <video className="vid1" src={video1} autoPlay loop muted />
+
+      <button className="button1"><b>Register</b></button>
       <PointerFollowDiv />
+     
+
+      <div className="gridbox">
+        <Tile
+          img={img1}
+          tags={["#web", "#firebase"]}
+          link={"https://trek-stepintostyle.web.app/"}
+        />
+        <Tile
+          img={img2}
+          tags={["#web", "#portfolio", "#ui"]}
+          link={"https://harinarayanan-kp.github.io/portfolio/"}
+        />
+        <Tile
+          img={img3}
+          tags={["#web", "#portfolio"]}
+          link={"https://trek-stepintostyle.web.app/"}
+        />
+        <Tile img={img4} tags={["#blender", "#3dmodelling"]} />
+        <Tile
+          img={img5}
+          tags={["#web", "#threejs"]}
+          link={"https://harinarayanan-kp.github.io/valentine/"}
+        />
+      </div>
+      
     </div>
   );
 };

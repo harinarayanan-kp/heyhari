@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "../App.css";
 
 const PointerFollowDiv = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
     <div
-      className='pointer'
+      className="pointer"
       style={{
-        position: 'fixed',
-        left: `${position.x -15}px`,
-        top: `${position.y -15}px`,
-        width: '30px',
-        height: '30px',
+        position: "fixed",
+        left: `${position.x - 15}px`,
+        top: `${position.y - 15}px`,
+        width: "30px",
+        height: "30px",
         // backgroundColor: 'black'
       }}
     ></div>
@@ -32,3 +32,12 @@ const PointerFollowDiv = () => {
 };
 
 export default PointerFollowDiv;
+
+// const MouseTracker = () => {
+
+//   return (
+//     <div style={{ width: '100vw', height: '100vh' }} onMouseMove={handleMouseMove}>
+//       <p>Mouse Velocity: {velocity}</p>
+//     </div>
+//   );
+// };
