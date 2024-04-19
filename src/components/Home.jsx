@@ -18,6 +18,8 @@ import img5 from "./portfolioimages/img5.png";
 
 import video1 from "../assets/renderfolio.mp4";
 import video2 from "../assets/renderfolio2.mp4";
+import Tile1 from "./Tile1/Tile1";
+import Canvas from "./ThreeD/Canvas";
 
 const Home = () => {
   return (
@@ -31,11 +33,13 @@ const Home = () => {
           <img className="pfpbg" src={bg} alt="" />
         </div>
       </div>
-      <video className="vid1" src={video1} autoPlay loop muted />
+      {/* <video className="vid1" src={video1} autoPlay loop muted /> */}
 
-      <button className="button1"><b>Register</b></button>
+      {/* <button className="button1"><b>Register</b></button> */}
       <PointerFollowDiv />
-     
+
+     <Tile1/>
+     {/* <Canvas/> */}
 
       <div className="gridbox">
         <Tile
