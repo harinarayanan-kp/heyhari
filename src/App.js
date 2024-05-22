@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "./style.css";
 import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import CanvasWin from "./components/ThreeD/Canvas";
@@ -9,7 +10,6 @@ function App() {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/canvas' element={<CanvasWin />} />
-      
     </Routes>
   );
 }

@@ -26,7 +26,7 @@ const Home = () => {
     <div className="home">
       <video className="vidfull" src={video2} autoPlay loop muted />
       <div className="homecenter">
-        <div className="introtitle">Hey, Hari Here</div>
+        <div className="introtitle ">Hey, Hari Here</div>
         <div className="squareimg">
           <img className="pfpfg" src={fg} alt="" />
           <img className="pfpimg" src={pfp} alt="" />
