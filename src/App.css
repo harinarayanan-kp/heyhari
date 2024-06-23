@@ -1,14 +1,25 @@
+@font-face {
+  font-family: 'PHONK';
+  src: url('./assets/fonts/Phonk.otf') format('opentype');
+}
 body {
-  background-color: rgb(254, 236, 213);
+  background: linear-gradient(#151726 0%, #070707 100%);
+  min-height: 100vh;
+  max-width: 100vw;
 }
 .home {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
   cursor: none;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+}
+
+.cursor-none {
+  cursor: none;
 }
 
 .homecenter {
@@ -19,7 +30,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 80vh;
-  width: 80vw ;
+  width: 80vw;
   overflow: hidden;
   justify-content: space-between;
   background-color: rgb(255, 255, 255);
@@ -70,16 +81,6 @@ img {
   z-index: 1;
   transition: 0.5s;
 }
-.pointer {
-  pointer-events: none;
-  z-index: 100;
-  position: absolute;
-  /* width: 30px;
-  height: 30px; */
-  backdrop-filter: invert();
-  /* filter: invert(); */
-  border-radius: 50%;
-}
 .gridbox {
   display: flex;
   flex-wrap: wrap;
@@ -100,16 +101,15 @@ img {
   margin-right: 5px;
   width: 300px;
   height: 300px;
+
   background-color: beige;
 }
-
 .tags {
   padding-bottom: 10px;
   padding-left: 10px;
   z-index: 3;
   display: flex;
 }
-
 .tag {
   transition: 0.3s;
   border-radius: 15px;
@@ -132,7 +132,6 @@ img {
   opacity: 0;
   z-index: 5;
 }
-
 .tile:hover .goto {
   opacity: 1;
 }
@@ -143,22 +142,6 @@ img {
   z-index: 7;
   width: 40px;
   height: 40px;
-}
-
-@media (pointer: coarse) {
-  .pointer {
-    display: none;
-  }
-  .squareimg {
-    height: 300px;
-    width: 300px;
-  }
-  img {
-    height: 300px;
-  }
-  .goto {
-    opacity: 1;
-  }
 }
 
 .vid1 {
@@ -174,6 +157,19 @@ img {
   filter: none;
 }
 
+.pointer {
+  pointer-events: none;
+  z-index: 100;
+  position: absolute;
+  backdrop-filter: invert();
+  /* filter: invert(); */
+  border-radius: 50%;
+}
+@media (pointer: coarse) {
+  .pointer {
+    display: none;
+  }
+}
 .button1 {
   font-size: 24px;
   color: white;
@@ -189,7 +185,6 @@ img {
   transition: 0.3s ease-in;
   box-shadow: inset 0px 0 0 0 rgb(249, 249, 249);
 }
-
 .button1:hover {
   border: 2px solid black;
   cursor: none;
@@ -197,6 +192,61 @@ img {
   stroke: black;
   box-shadow: inset 250px 0px 15px 0px rgb(255, 255, 255);
 }
+.button1:hover + .pointer {
+  opacity: 0;
+  filter: none;
+}
+
+.button-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.button-container:active .button_bg{
+  background-color: rgb(255, 255, 255);
+}
+.button2 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  transition: 0.3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.button2:hover{
+  color: black;
+}
+.button_bg {
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background-color: #fcdb21;
+  transition: width 0.3s ease-out;
+}
+.button2:hover ~ .button_bg {
+  width: 100%;
+}
+.button2:hover {
+  cursor: none;
+}
+/* .hidePointerOnHover{
+  opacity: 1;
+}
+.hidePointerOnHover:hover{
+  opacity: 0;
+  filter: none;
+} */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -216,8 +266,80 @@ img {
   animation: fadeIn 3s ease forwards;
   object-fit: cover;
 }
+/* ---LOADER ANIMATION--- */
+.loader {
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset #fff;
+  animation: l4 2.5s infinite;
+}
+.loader:after {
+  animation-delay: -1.25s;
+}
+@keyframes l4 {
+  0% {
+    inset: 0 35px 35px 0;
+  }
+  12.5% {
+    inset: 0 35px 0 0;
+  }
+  25% {
+    inset: 35px 35px 0 0;
+  }
+  37.5% {
+    inset: 35px 0 0 0;
+  }
+  50% {
+    inset: 35px 0 0 35px;
+  }
+  62.5% {
+    inset: 0 0 0 35px;
+  }
+  75% {
+    inset: 0 0 35px 35px;
+  }
+  87.5% {
+    inset: 0 0 35px 0;
+  }
+  100% {
+    inset: 0 35px 35px 0;
+  }
+}
 
-.button1:hover + .pointer {
+/* ---PARALLAX--- */
+.parallax-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  position: relative;
+}
+.parallax-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.parallax-layer img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.phonk{
+  font-family: 'PHONK', sans-serif;
+}
+.Opacity0{
   opacity: 0;
-  filter: none;
 }

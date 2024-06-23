@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import { Link } from "react-router-dom";
 import "../App.css";
 
@@ -21,27 +21,67 @@ import video2 from "../assets/renderfolio2.mp4";
 import Tile1 from "./Tile1/Tile1";
 import Canvas from "./ThreeD/Canvas";
 
+//parallax img
+import layer0 from "../assets/parallax_camera/final.svg";
+import layer1 from "../assets/parallax_camera/l1.svg";
+import layer2 from "../assets/parallax_camera/l2.svg";
+import layer3 from "../assets/parallax_camera/l3.svg";
+import layer4 from "../assets/parallax_camera/l4.svg";
+import layer5 from "../assets/parallax_camera/l5.svg";
+
+function Button2(props) {
+  return (
+    <a href={props.link} className={props.className + " button-container"}>
+      <button className=" button2">{props.text}</button>
+      <div className="button_bg"></div>
+    </a>
+  );
+}
+
 const Home = () => {
+  const [hidePointers, setMouseOver] = useState(false);
+  const handleMouseEnter = () => {
+    setMouseOver(true);
+  };
+  const handleMouseLeave = () => {
+    setMouseOver(false);
+  };
+
+  const topDivRef = useRef(null);
+  const [topDivHeight, setTopDivHeight] = useState(0);
+
+  useEffect(() => {
+    if (topDivRef.current) {
+      setTopDivHeight(topDivRef.current.offsetHeight);
+    }
+  }, []);
   return (
     <div className="home">
-      <video className="vidfull" src={video2} autoPlay loop muted />
-      <div className="homecenter">
+      <PointerFollowDiv hide={hidePointers} />
+      <div ref={topDivRef}>
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <Button2 className="" text="HEY" link="/canvas" />
+        </div>
+      </div>
+      <PARALLAX topDivHeight={topDivHeight} />
+      <div className="phonk text-white text-4xl">MORE SooooN</div>
+      {/* <video className="vidfull" src={video2} autoPlay loop muted /> */}
+      {/* <div className="homecenter">
         <div className="introtitle ">Hey, Hari Here</div>
         <div className="squareimg">
           <img className="pfpfg" src={fg} alt="" />
           <img className="pfpimg" src={pfp} alt="" />
           <img className="pfpbg" src={bg} alt="" />
         </div>
-      </div>
+      </div> */}
       {/* <video className="vid1" src={video1} autoPlay loop muted /> */}
 
       {/* <button className="button1"><b>Register</b></button> */}
-      <PointerFollowDiv />
 
-     <Tile1/>
-     {/* <Canvas/> */}
+      {/* <Tile1/> */}
+      {/* <Canvas/> */}
 
-      <div className="gridbox">
+      {/* <div className="gridbox">
         <Tile
           img={img1}
           tags={["#web", "#firebase"]}
@@ -63,8 +103,7 @@ const Home = () => {
           tags={["#web", "#threejs"]}
           link={"https://harinarayanan-kp.github.io/valentine/"}
         />
-      </div>
-      
+      </div> */}
     </div>
   );
 };
@@ -88,6 +127,51 @@ const Tile = ({ tags, img, link }) => {
       )}
       <img className="tileimg" src={img} alt="" />
       <div className="tags">{tagElements}</div>
+    </div>
+  );
+};
+const PARALLAX = ({ topDivHeight }) => {
+  return (
+    <div className="parallax-container">
+      <ParallaxLayer depth={0.9} initialOffset={topDivHeight}>
+        <img src={layer1} alt="Layer 1" />
+      </ParallaxLayer>
+      <ParallaxLayer depth={0.5} initialOffset={topDivHeight}>
+        <img src={layer3} alt="Layer 3" />
+      </ParallaxLayer>
+      <ParallaxLayer depth={0.4} initialOffset={topDivHeight}>
+        <img src={layer4} alt="Layer 4" />
+      </ParallaxLayer>
+      <ParallaxLayer depth={0.3} initialOffset={topDivHeight}>
+        <img src={layer5} alt="Layer 5" />
+      </ParallaxLayer>
+      <ParallaxLayer depth={0.9} initialOffset={topDivHeight}>
+        <img src={layer0} alt="Layer 0" />
+      </ParallaxLayer>
+      <ParallaxLayer depth={0.7} initialOffset={topDivHeight}>
+        <img src={layer2} alt="Layer 2" />
+      </ParallaxLayer>
+    </div>
+  );
+};
+const ParallaxLayer = ({ depth, initialOffset, children }) => {
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const translateY = -scrollY * depth + initialOffset * depth;
+  return (
+    <div
+      className="parallax-layer"
+      style={{ transform: `translateY(${translateY}px)` }}
+    >
+      {children}
     </div>
   );
 };
