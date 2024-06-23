@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'PHONK';
-  src: url('./assets/fonts/Phonk.otf') format('opentype');
+  font-family: "PHONK";
+  src: url("./assets/fonts/Phonk.otf") format("opentype");
 }
 body {
   background: linear-gradient(#151726 0%, #070707 100%);
@@ -44,10 +44,6 @@ body {
   height: 400px;
 }
 
-img {
-  position: absolute;
-  height: 400px;
-}
 .introtitle {
   margin: 50px;
   font-family: "Roboto";
@@ -204,23 +200,24 @@ img {
   justify-content: center;
   transition: 0.2s;
 }
-.button-container:active .button_bg{
-  background-color: rgb(255, 255, 255);
+.button-container:active .button_bg {
+  background-color: rgb(146, 146, 146);
 }
 .button2 {
+  border: 2px solid white;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 15px;
   transition: 0.3s;
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
-.button2:hover{
+.button2:hover {
   color: black;
 }
 .button_bg {
@@ -239,13 +236,6 @@ img {
 .button2:hover {
   cursor: none;
 }
-/* .hidePointerOnHover{
-  opacity: 1;
-}
-.hidePointerOnHover:hover{
-  opacity: 0;
-  filter: none;
-} */
 
 @keyframes fadeIn {
   from {
@@ -318,12 +308,11 @@ img {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 600px;
-  min-height: 100vh;
+  height: 100%;
   position: relative;
 }
 .parallax-layer {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -337,9 +326,23 @@ img {
   display: block;
 }
 
-.phonk{
-  font-family: 'PHONK', sans-serif;
+.phonk {
+  font-family: "PHONK", sans-serif;
 }
-.Opacity0{
+.Opacity0 {
   opacity: 0;
+}
+
+@keyframes anim1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.onload{
+  animation: anim1;
+  animation-timeline: view();
 }

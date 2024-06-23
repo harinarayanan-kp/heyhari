@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { IoMdPause, IoMdPlay } from "react-icons/io";
 import { MdOutlineSkipNext } from "react-icons/md";
 
-const Music = () => {
-  const size = 600;
+const Music = (props) => {
+  const size = props.size;
 
   // Sample list of songs
   const songs = [

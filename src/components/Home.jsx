@@ -16,6 +16,9 @@ import img3 from "./portfolioimages/img3.png";
 import img4 from "./portfolioimages/img4.png";
 import img5 from "./portfolioimages/img5.png";
 
+import logoWhite from "../assets/images/logo white.svg";
+import emoji1 from "../assets/images/emoji_glass_thumbsup.png";
+
 import video1 from "../assets/renderfolio.mp4";
 import video2 from "../assets/renderfolio2.mp4";
 import Tile1 from "./Tile1/Tile1";
@@ -28,6 +31,8 @@ import layer2 from "../assets/parallax_camera/l2.svg";
 import layer3 from "../assets/parallax_camera/l3.svg";
 import layer4 from "../assets/parallax_camera/l4.svg";
 import layer5 from "../assets/parallax_camera/l5.svg";
+import Music from "./Music";
+import { Link } from "react-router-dom";
 
 function Button2(props) {
   return (
@@ -39,6 +44,10 @@ function Button2(props) {
 }
 
 const Home = () => {
+  const [pointerStyle, setPointerStyle] = useState(0);
+  // const handlePointerstyle = (i) => {
+  //   setPointerStyle(i);
+  // };
   const [hidePointers, setMouseOver] = useState(false);
   const handleMouseEnter = () => {
     setMouseOver(true);
@@ -49,21 +58,88 @@ const Home = () => {
 
   const topDivRef = useRef(null);
   const [topDivHeight, setTopDivHeight] = useState(0);
-
+  const [dimension, setDimension] = useState(
+    window.innerHeight > window.innerWidth
+      ? window.innerWidth
+      : window.innerHeight
+  );
+  const handleResize = () => {
+    setDimension(
+      window.innerHeight > window.innerWidth
+        ? window.innerWidth
+        : window.innerHeight
+    );
+  };
   useEffect(() => {
+    window.addEventListener("resize", handleResize);
     if (topDivRef.current) {
       setTopDivHeight(topDivRef.current.offsetHeight);
     }
   }, []);
   return (
     <div className="home">
-      <PointerFollowDiv hide={hidePointers} />
-      <div ref={topDivRef}>
+      <PointerFollowDiv hide={hidePointers} customPointer={pointerStyle} />
+      <div
+        ref={topDivRef}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1000,
+            padding: 20,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            height: 100,
+          }}
+        >
+          <a href="./">
+            <img src={logoWhite} alt="Layer 2" />
+          </a>
+          <Button2 text="CONTACT" link="./music" />
+        </div>
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <Button2 className="" text="HEY" link="/canvas" />
         </div>
       </div>
       <PARALLAX topDivHeight={topDivHeight} />
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <Button2
+          className=""
+          text="View Gallery"
+          link="https://harinarayanan-kp.github.io/portfolio/"
+        />
+      </div>
+      <div style={{ display: "flex", alignItems: "center" }} className="onload">
+        <img style={{ height: 80 }} src={emoji1} alt="emoji" />
+        <div style={{ fontSize: "2rem", color: "white" }} className="phonk">
+          RAW <span style={{color: "yellow"}}>CSS</span>
+        </div>
+      </div>
+      <div
+      //FIX Continuous flickering
+        onMouseEnter={() => {
+          setPointerStyle(1);
+        }}
+        onMouseLeave={() => {
+          setPointerStyle(0);
+        }}
+      >
+        <Music
+          size={
+            window.innerHeight > window.innerWidth
+              ? window.innerWidth - 50
+              : window.innerHeight * 0.75
+          }
+        />
+      </div>
+
       <div className="phonk text-white text-4xl">MORE SooooN</div>
       {/* <video className="vidfull" src={video2} autoPlay loop muted /> */}
       {/* <div className="homecenter">
@@ -130,27 +206,41 @@ const Tile = ({ tags, img, link }) => {
     </div>
   );
 };
+
 const PARALLAX = ({ topDivHeight }) => {
   return (
-    <div className="parallax-container">
-      <ParallaxLayer depth={0.9} initialOffset={topDivHeight}>
-        <img src={layer1} alt="Layer 1" />
-      </ParallaxLayer>
-      <ParallaxLayer depth={0.5} initialOffset={topDivHeight}>
-        <img src={layer3} alt="Layer 3" />
-      </ParallaxLayer>
-      <ParallaxLayer depth={0.4} initialOffset={topDivHeight}>
-        <img src={layer4} alt="Layer 4" />
-      </ParallaxLayer>
-      <ParallaxLayer depth={0.3} initialOffset={topDivHeight}>
-        <img src={layer5} alt="Layer 5" />
-      </ParallaxLayer>
-      <ParallaxLayer depth={0.9} initialOffset={topDivHeight}>
-        <img src={layer0} alt="Layer 0" />
-      </ParallaxLayer>
-      <ParallaxLayer depth={0.7} initialOffset={topDivHeight}>
-        <img src={layer2} alt="Layer 2" />
-      </ParallaxLayer>
+    <div
+      style={{
+        width:
+          window.innerHeight > window.innerWidth
+            ? window.innerWidth - 50
+            : window.innerHeight - 50,
+        height:
+          window.innerHeight > window.innerWidth
+            ? window.innerWidth - 50
+            : window.innerHeight - 50,
+      }}
+    >
+      <div className="parallax-container">
+        <ParallaxLayer depth={0.9} initialOffset={topDivHeight}>
+          <img src={layer1} alt="Layer 1" />
+        </ParallaxLayer>
+        <ParallaxLayer depth={0.5} initialOffset={topDivHeight}>
+          <img src={layer3} alt="Layer 3" />
+        </ParallaxLayer>
+        <ParallaxLayer depth={0.4} initialOffset={topDivHeight}>
+          <img src={layer4} alt="Layer 4" />
+        </ParallaxLayer>
+        <ParallaxLayer depth={0.3} initialOffset={topDivHeight}>
+          <img src={layer5} alt="Layer 5" />
+        </ParallaxLayer>
+        <ParallaxLayer depth={0.9} initialOffset={topDivHeight}>
+          <img src={layer0} alt="Layer 0" />
+        </ParallaxLayer>
+        <ParallaxLayer depth={0.7} initialOffset={topDivHeight}>
+          <img src={layer2} alt="Layer 2" />
+        </ParallaxLayer>
+      </div>
     </div>
   );
 };
@@ -165,7 +255,7 @@ const ParallaxLayer = ({ depth, initialOffset, children }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const translateY = -scrollY * depth + initialOffset * depth;
+  const translateY = -scrollY * depth;
   return (
     <div
       className="parallax-layer"

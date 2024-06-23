@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import customPointer1 from "../assets/images/custompointer.svg";
 import "../App.css";
 
-const PointerFollowDiv = ({ hide }) => {
+const PointerFollowDiv = ({ hide, customPointer }) => {
   const radius = 24;
   const [position, setPosition] = useState({ x: -radius, y: 0 });
   const [prevPosition, setPrevPosition] = useState({ x: -radius, y: 0 });
@@ -34,22 +35,39 @@ const PointerFollowDiv = ({ hide }) => {
 
   // Determine the scale factor based on velocity
   const scaleFactor = Math.min(1 - velocity / 5, 2); // Adjust the divisor and max scale as needed
-
-  return (
-    <div
-      className={hide ? 'Opacity0' : 'pointer'}
-      style={{
-        position: "fixed",
-        left: `${position.x - radius / 2}px`,
-        top: `${position.y - radius / 2}px`,
-        width: `${radius}px`,
-        height: `${radius}px`,
-        transform: `scale(${scaleFactor})`,
-        transition: 'transform 0.1s ease-out',
-        // backgroundColor: 'black'
-      }}
-    ></div>
-  );
+  if (customPointer == 1) {
+    return (
+      <div
+      className={hide ? "Opacity0" : ""}
+        style={{
+          position: "fixed",
+          left: `${position.x - radius / 2}px`,
+          top: `${position.y - radius / 2}px`,
+          width: 20,
+          transition: "transform 0.1s ease-out",
+          // backgroundColor: 'black'
+        }}
+      >
+        <img height={60} src={customPointer1} alt="" />
+      </div>
+    );
+  } else {
+    return (
+      <div
+        className={hide ? "Opacity0" : "pointer"}
+        style={{
+          position: "fixed",
+          left: `${position.x - radius / 2}px`,
+          top: `${position.y - radius / 2}px`,
+          width: `${radius}px`,
+          height: `${radius}px`,
+          transform: `scale(${scaleFactor})`,
+          transition: "transform 0.1s ease-out",
+          // backgroundColor: 'black'
+        }}
+      ></div>
+    );
+  }
 };
 
 export default PointerFollowDiv;
