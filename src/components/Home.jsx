@@ -17,7 +17,6 @@ import img4 from "./portfolioimages/img4.png";
 import img5 from "./portfolioimages/img5.png";
 
 import logoWhite from "../assets/images/logo white.svg";
-import emoji1 from "../assets/images/emoji_glass_thumbsup.png";
 
 import video1 from "../assets/renderfolio.mp4";
 import video2 from "../assets/renderfolio2.mp4";
@@ -33,6 +32,9 @@ import layer4 from "../assets/parallax_camera/l4.svg";
 import layer5 from "../assets/parallax_camera/l5.svg";
 import Music from "./Music";
 import { Link } from "react-router-dom";
+
+import emoji1 from "../assets/images/emoji_glass_thumbsup.png";
+import Marquee from "react-fast-marquee";
 
 function Button2(props) {
   return (
@@ -102,7 +104,9 @@ const Home = () => {
           <a href="./">
             <img src={logoWhite} alt="Layer 2" />
           </a>
-          <Button2 text="CONTACT" link="./music" />
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Button2 text="CONTACT" link="./music" />
+          </div>
         </div>
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <Button2 className="" text="HEY" link="/canvas" />
@@ -116,19 +120,42 @@ const Home = () => {
           link="https://harinarayanan-kp.github.io/portfolio/"
         />
       </div>
-      <div style={{ display: "flex", alignItems: "center" }} className="onload">
-        <img style={{ height: 80 }} src={emoji1} alt="emoji" />
-        <div style={{ fontSize: "2rem", color: "white" }} className="phonk">
-          RAW <span style={{color: "yellow"}}>CSS</span>
+      <Marquee>
+        <div>
+          <div
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+            }}
+            className="phonk"
+          >
+            <img style={{ height: 80 }} src={emoji1} alt="emoji" />I breath RAW{" "}
+            <div style={{ color: "yellow" }}>CSS</div>
+          </div>
         </div>
-      </div>
+        <div style={{paddingLeft:"40px", paddingRight:"40px"}}>
+          <div
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+            }}
+            className="phonk"
+          >
+            <img style={{ height: 80 }} src={emoji1} alt="emoji" />
+            <div style={{ color: "yellow" }}>FIGMA</div>flows my veins
+          </div>
+        </div>
+      </Marquee>
       <div
-      //FIX Continuous flickering
         onMouseEnter={() => {
-          setPointerStyle(1);
+          // setPointerStyle(1);
         }}
         onMouseLeave={() => {
-          setPointerStyle(0);
+          // setPointerStyle(0);
         }}
       >
         <Music
