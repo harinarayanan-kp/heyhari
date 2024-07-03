@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/heyhari/static/css/main.3f41eff6.css",
-    "main.js": "/heyhari/static/js/main.cc39e22b.js",
+    "main.js": "/heyhari/static/js/main.15c294b7.js",
     "static/js/453.e9afb2cb.chunk.js": "/heyhari/static/js/453.e9afb2cb.chunk.js",
     "static/media/renderfolio2.mp4": "/heyhari/static/media/renderfolio2.8ec9ac2e8a1e34770197.mp4",
     "static/media/renderfolio.mp4": "/heyhari/static/media/renderfolio.bac5ad98d5345f2bd337.mp4",
@@ -27,11 +27,11 @@
     "static/media/custompointer.svg": "/heyhari/static/media/custompointer.8ee5039547b8b5599d6daa44593f1c07.svg",
     "static/media/l1.svg": "/heyhari/static/media/l1.4df35336cd18debe1d9d291e1be66c4d.svg",
     "main.3f41eff6.css.map": "/heyhari/static/css/main.3f41eff6.css.map",
-    "main.cc39e22b.js.map": "/heyhari/static/js/main.cc39e22b.js.map",
+    "main.15c294b7.js.map": "/heyhari/static/js/main.15c294b7.js.map",
     "453.e9afb2cb.chunk.js.map": "/heyhari/static/js/453.e9afb2cb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f41eff6.css",
-    "static/js/main.cc39e22b.js"
+    "static/js/main.15c294b7.js"
   ]
 }
