@@ -3,6 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import { Html, useProgress } from "@react-three/drei";
 import Model from "./Model";
+import { Avatar } from "./Avatar";
 
 function Loader() {
   const { progress } = useProgress();
@@ -33,21 +34,14 @@ const ThreeCanvas = () => {
         camera={{ position: [0, 0, 10], fov: 90, near: 1, far: 50 }}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight
-            intensity={2}
-            color="white"
-            position={[1, 1,2]}
-          />
+          {/* <Avatar /> */}
+          <color attach="background" args={["#ececec"]} />
+          <directionalLight intensity={2} color="white" position={[1, 1, 2]} />
           <OrbitControls enableZoom={false} enablePan={false} />
           <ambientLight intensity={0.05} />
-          {/* <Model path="blender.glb" position={[-6, 0, 0]} /> */}
-          {/* <Model path="aftereffects.glb" position={[-3, 0, 0]} /> */}
-          <Model path="photoshop.glb" position={[0, 0, 0]} />
-          {/* <Model path="premierepro.glb" position={[3, 0, 0]} /> */}
-          {/* <Model path="figma.glb" position={[6, 0, 0]} /> */}
+          <Model path="/photoshop.glb" position={[0, 0, 0]} />
         </Suspense>
       </Canvas>
-
     </div>
   );
 };

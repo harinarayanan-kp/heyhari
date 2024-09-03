@@ -1,7 +1,7 @@
 {
   "name": "heyhari",
   "version": "0.1.0",
-  "homepage": "https://harinarayanan-kp.github.io/",
+  "homepage": "https://harinarayanan-kp.github.io/heyhari",
   "private": true,
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.4",
