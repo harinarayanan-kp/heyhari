@@ -1,4 +1,4 @@
-POERFOLIO
+PORTFOLIO
 
 to initialize, 
 ```npm i```
